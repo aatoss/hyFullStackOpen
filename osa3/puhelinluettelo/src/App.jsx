@@ -30,6 +30,13 @@ const App = () => {
             setContacts(contacts.map(c => c.id === contact.id ? response : c))
             setNewName('')
             setNewNumber('')
+          }).catch(error => {
+            setErrorState(true)
+            setNotification(error.response.data.error)
+            setTimeout(() => {
+              setNotification(null)
+              setErrorState(false)
+            }, 5000)
           })
       } else {
         setNewName('')
@@ -46,6 +53,13 @@ const App = () => {
           }, 5000)
           setNewName('')
           setNewNumber('')
+        }).catch(error => {
+          setErrorState(true)
+          setNotification(error.response.data.error)
+          setTimeout(() => {
+            setNotification(null)
+            setErrorState(false)
+          }, 5000)
         })
     }
   }
