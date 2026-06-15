@@ -28,9 +28,9 @@ const numberSchema = new mongoose.Schema({
     minlength: 8,
     validate: {
       validator: function (v) {
-        return /\d{2}-\d{6}|\d{3}-\d{5}/.test(v);
+        return /\d{2}-\d{6}|\d{3}-\d{5}/.test(v)
       },
-      message: props => `Number must be at least 8 digits and the minimum accepted format is XX-XXXXXX or XXX-XXXXX`
+      message: props => 'Number must be at least 8 digits and the minimum accepted format is XX-XXXXXX or XXX-XXXXX'
     }
   }
 })
