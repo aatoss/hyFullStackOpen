@@ -1,7 +1,9 @@
-POST https://hyfullstackopen.onrender.com/api/persons
+POST http://localhost:3001/api/blogs
 content-type: application/json
 
 {
-  "name": "Aatos",
-  "number": "045678910"
+  "title": "Mikä on kun ei onnistu",
+  "author": "Aatos",
+  "url": "https://www.aatos.com/mikä-on-kun-ei-onnistu",
+  "likes": 100000
 }
