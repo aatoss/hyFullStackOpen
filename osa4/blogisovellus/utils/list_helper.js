@@ -10,7 +10,9 @@ const totalLikes = (blogs) => {
 
 const favoriteBlog = (blogs) => {
   if (blogs.length === 0) return null
+
   const blog = blogs.reduce((favourite, current) => favourite.likes > current.likes ? favourite : current)
+
   return { title: blog.title, author: blog.author, likes: blog.likes }
 }
 
@@ -19,6 +21,7 @@ const mostBlogs = (blogs) => {
 
   const countByAuthor = lodash.countBy(blogs, getAuthor)
   const authorWithMostBlogs = findAuthorWithMostBlogs(countByAuthor)
+
   return { author: authorWithMostBlogs, blogs: countByAuthor[authorWithMostBlogs] }
 }
 
@@ -27,6 +30,7 @@ const mostLikes = (blogs) => {
 
   const blogAuthors = lodash.groupBy(blogs, getAuthor)
   const authorsTotalLikes = countTotalLikes(blogAuthors)
+
   return authorsTotalLikes.reduce((mostLikes, current) =>
     mostLikes.likes > current.likes ? mostLikes : current
   )

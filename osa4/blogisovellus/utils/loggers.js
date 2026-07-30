@@ -1,16 +1,13 @@
 const info = (...params) => {
-  if (process.env.NODE_ENV !== 'test') {
+  if(process.env.NODE_ENV !== 'test' && process.env.NODE_ENV !== 'production') {
     console.log(...params)
   }
 }
 
 const error = (...params) => {
-  if (process.env.NODE_ENV !== 'test') {
-    console.error(...params)
+  if(process.env.NODE_ENV !== 'test' && process.env.NODE_ENV !== 'production') {
+    console.log(...params)
   }
 }
 
-module.exports = {
-  info,
-  error,
-}
+module.exports = { info, error }
